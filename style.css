@@ -13,6 +13,7 @@ body {
     background: #0b0b0f;
     color: #ffffff;
     line-height: 1.6;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* =========================
@@ -38,6 +39,8 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
     z-index: 1000;
+
+    transition: 0.3s ease;
 }
 
 .logo {
@@ -59,7 +62,6 @@ body {
     color: #cccccc;
     text-decoration: none;
     font-size: 14px;
-
     transition: 0.3s;
 }
 
@@ -88,7 +90,6 @@ body {
     transform: scale(1.05);
 }
 
-
 /* =========================
    HERO
 ========================= */
@@ -113,6 +114,8 @@ body {
             transparent 30%
         ),
         #0b0b0f;
+
+    transition: 0.3s ease;
 }
 
 .hero-content {
@@ -184,7 +187,6 @@ body {
         0 10px 30px rgba(124, 92, 255, 0.25);
 }
 
-
 /* =========================
    ARTICLES
 ========================= */
@@ -193,6 +195,8 @@ body {
     padding: 100px 8%;
 
     background: #101016;
+
+    transition: 0.3s ease;
 }
 
 .section-title {
@@ -260,6 +264,8 @@ body {
             #211d3d,
             #17171f
         );
+
+    transition: 0.3s ease;
 }
 
 .article-content {
@@ -304,7 +310,6 @@ body {
     font-weight: 700;
 }
 
-
 /* =========================
    ABOUT
 ========================= */
@@ -317,6 +322,8 @@ body {
     padding: 120px 8%;
 
     text-align: center;
+
+    transition: 0.3s ease;
 }
 
 .about > p:first-child {
@@ -343,7 +350,6 @@ body {
     font-size: 16px;
 }
 
-
 /* =========================
    FOOTER
 ========================= */
@@ -363,8 +369,99 @@ footer {
     color: #777782;
 
     font-size: 13px;
+
+    transition: 0.3s ease;
 }
 
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light-mode {
+    background: #f5f5f7;
+    color: #17171f;
+}
+
+body.light-mode .navbar {
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .navbar nav a {
+    color: #55555f;
+}
+
+body.light-mode .navbar nav a:hover {
+    color: #000000;
+}
+
+body.light-mode #themeButton {
+    background: #eeeeF2;
+    color: #17171f;
+}
+
+body.light-mode .hero {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(124, 92, 255, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(0, 180, 255, 0.06),
+            transparent 30%
+        ),
+        #f5f5f7;
+}
+
+body.light-mode .description {
+    color: #666670;
+}
+
+body.light-mode .articles {
+    background: #ffffff;
+}
+
+body.light-mode .article-card {
+    background: #f7f7f9;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .article-card:hover {
+    border-color: rgba(124, 92, 255, 0.4);
+}
+
+body.light-mode .article-image {
+    background:
+        linear-gradient(
+            135deg,
+            #e9e5ff,
+            #f7f7f9
+        );
+}
+
+body.light-mode .article-content p {
+    color: #666670;
+}
+
+body.light-mode .article-content a {
+    color: #17171f;
+}
+
+body.light-mode .about {
+    background: #f5f5f7;
+}
+
+body.light-mode .about p:last-child {
+    color: #666670;
+}
+
+body.light-mode footer {
+    background: #f5f5f7;
+    border-top-color: rgba(0, 0, 0, 0.08);
+    color: #777782;
+}
 
 /* =========================
    MOBILE
@@ -409,7 +506,6 @@ footer {
 
     footer {
         flex-direction: column;
-
         text-align: center;
     }
 }
