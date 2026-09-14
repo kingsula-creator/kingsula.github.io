@@ -6,8 +6,8 @@
 // ================================
 async function tampilkanPengunjung() {
   try {
-    const res = await fetch("https://api.countapi.xyz/hit/kingsula-blog/beranda");
-    const data = await res.json();
+    const res = await fetch("https://api.countapi.xyz/hit/kingsula-creator-blog/main");
+
     
     const elemen = document.getElementById("jumlahPengunjung");
     if (elemen) {
