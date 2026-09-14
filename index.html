@@ -1,47 +1,71 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kingsula Blog</title>
+    <title>KINGSULA. — Blog</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
         <div class="logo">
-            KINGSULA<span>.</span>
+            KINGSULA.
         </div>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#artikel">Artikel</a>
-            <a href="#about">About</a>
-        </nav>
+        <div class="nav-links">
 
-        <button id="themeButton">🌙</button>
-    </header>
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#artikel">
+                Artikel
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+        </div>
+
+        <button id="themeButton">
+            🌙
+        </button>
+
+    </nav>
 
 
-    <!-- HERO -->
+    <!-- =========================
+         HERO
+    ========================== -->
+
     <section id="home" class="hero">
 
         <div class="hero-content">
 
-            <p class="small-title">WELCOME TO MY BLOG</p>
+            <p class="hero-small">
+                WELCOME TO MY BLOG
+            </p>
 
             <h1>
-                Cerita, Project &<br>
-                <span>Teknologi.</span>
+                Cerita, Project<br>
+                & Teknologi.
             </h1>
 
-            <p class="description">
-                Tempat berbagi cerita, tutorial, project Roblox,
-                coding, game development, dan teknologi.
+            <p class="hero-description">
+                Tempat berbagi cerita tentang Roblox,
+                coding, game development, project
+                dan teknologi.
             </p>
 
             <a href="#artikel" class="hero-button">
@@ -53,16 +77,31 @@
     </section>
 
 
-    <!-- ARTIKEL -->
+    <!-- =========================
+         ARTIKEL
+    ========================== -->
+
     <section id="artikel" class="articles">
 
         <div class="section-title">
-            <p>MY ARTICLES</p>
-            <h2>Artikel Terbaru</h2>
+
+            <p>
+                BLOG
+            </p>
+
+            <h2>
+                Artikel Terbaru
+            </h2>
+
         </div>
 
 
         <div class="article-grid">
+
+
+            <!-- =====================
+                 ARTIKEL ROBLOX
+            ====================== -->
 
             <article class="article-card">
 
@@ -70,22 +109,26 @@
                     🎮
                 </div>
 
-                <div class="article-content">
+                <div class="article-info">
 
                     <span class="category">
                         ROBLOX
                     </span>
 
                     <h3>
-                        Membuat Game Roblox Dari Nol
+                        Belajar Membuat Game Roblox dari Nol
                     </h3>
 
                     <p>
-                        Belajar membuat game Roblox
-                        menggunakan Roblox Studio.
+                        Belajar membuat game Roblox,
+                        mengenal Roblox Studio dan mulai
+                        menggunakan bahasa pemrograman Luau.
                     </p>
 
-                    <a href="#">
+                    <a
+                        href="artikel-roblox.html"
+                        class="read-more"
+                    >
                         Baca Selengkapnya →
                     </a>
 
@@ -93,6 +136,10 @@
 
             </article>
 
+
+            <!-- =====================
+                 ARTIKEL CODING
+            ====================== -->
 
             <article class="article-card">
 
@@ -100,22 +147,26 @@
                     💻
                 </div>
 
-                <div class="article-content">
+                <div class="article-info">
 
                     <span class="category">
                         CODING
                     </span>
 
                     <h3>
-                        Belajar Coding Untuk Pemula
+                        Belajar Coding untuk Pemula
                     </h3>
 
                     <p>
-                        Panduan sederhana untuk mulai
-                        belajar programming.
+                        Mengenal dunia coding dan bagaimana
+                        cara memulai belajar pemrograman
+                        dari dasar.
                     </p>
 
-                    <a href="#">
+                    <a
+                        href="artikel-coding.html"
+                        class="read-more"
+                    >
                         Baca Selengkapnya →
                     </a>
 
@@ -123,6 +174,10 @@
 
             </article>
 
+
+            <!-- =====================
+                 ARTIKEL PROJECT
+            ====================== -->
 
             <article class="article-card">
 
@@ -130,22 +185,26 @@
                     🚀
                 </div>
 
-                <div class="article-content">
+                <div class="article-info">
 
                     <span class="category">
                         PROJECT
                     </span>
 
                     <h3>
-                        Project Terbaru Saya
+                        Project yang Sedang Dibuat
                     </h3>
 
                     <p>
-                        Cerita dan perkembangan project
-                        yang sedang saya kerjakan.
+                        Cerita tentang project yang sedang
+                        dikembangkan dan proses membangun
+                        sesuatu dari nol.
                     </p>
 
-                    <a href="#">
+                    <a
+                        href="artikel-project.html"
+                        class="read-more"
+                    >
                         Baca Selengkapnya →
                     </a>
 
@@ -153,30 +212,45 @@
 
             </article>
 
+
         </div>
 
     </section>
 
 
-    <!-- ABOUT -->
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
     <section id="about" class="about">
 
-        <p>ABOUT ME</p>
+        <div class="about-content">
 
-        <h2>Kingsula</h2>
+            <p class="section-label">
+                ABOUT
+            </p>
 
-        <p>
-            Selamat datang di blog saya.
-            Di sini saya berbagi project, pengalaman,
-            tutorial, dan berbagai hal yang saya pelajari
-            tentang teknologi.
-        </p>
+            <h2>
+                Tentang Kingsula
+            </h2>
+
+            <p>
+                Hai! Saya Kingsula.
+                Blog ini dibuat untuk berbagi cerita,
+                project, pengalaman coding dan berbagai
+                hal menarik tentang teknologi.
+            </p>
+
+        </div>
 
     </section>
 
 
-    <!-- FOOTER -->
-    <footer>
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
 
         <p>
             © 2026 Kingsula Blog
@@ -189,7 +263,10 @@
     </footer>
 
 
+    <!-- SCRIPT -->
+
     <script src="script.js"></script>
 
 </body>
+
 </html>
