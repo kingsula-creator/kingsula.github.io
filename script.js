@@ -87,3 +87,22 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("================================");
 
 });
+
+// ================================
+// JUMLAH PENGUNJUNG
+// ================================
+async function tampilkanPengunjung() {
+  try {
+    const res = await fetch("https://api.countapi.xyz/hit/kingsula-blog/beranda");
+    const data = await res.json();
+    
+    const elemen = document.getElementById("jumlahPengunjung");
+    if (elemen) {
+      elemen.textContent = data.value;
+    }
+  } catch (err) {
+    console.log("Gagal ambil data pengunjung");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", tampilkanPengunjung);
