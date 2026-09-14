@@ -55,6 +55,7 @@ body {
 
 .navbar nav {
     display: flex;
+    align-items: center;
     gap: 30px;
 }
 
@@ -67,6 +68,24 @@ body {
 
 .navbar nav a:hover {
     color: #ffffff;
+}
+
+/* === KOTAK PENGUNJUNG DI NAVBAR === */
+.pengunjung-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(124, 92, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #ddd;
+    transition: 0.3s ease;
+}
+
+.pengunjung-box span {
+    font-weight: 700;
+    color: #fff;
 }
 
 #themeButton {
@@ -395,6 +414,15 @@ body.light-mode .navbar nav a:hover {
     color: #000000;
 }
 
+body.light-mode .pengunjung-box {
+    background: rgba(124, 92, 255, 0.15);
+    color: #333;
+}
+
+body.light-mode .pengunjung-box span {
+    color: #000;
+}
+
 body.light-mode #themeButton {
     background: #eeeeF2;
     color: #17171f;
@@ -474,7 +502,16 @@ body.light-mode footer {
     }
 
     .navbar nav {
+        gap: 15px;
+    }
+
+    .navbar nav a {
         display: none;
+    }
+
+    .pengunjung-box {
+        padding: 5px 10px;
+        font-size: 12px;
     }
 
     .hero {
@@ -509,6 +546,7 @@ body.light-mode footer {
         text-align: center;
     }
 }
+
 /* =================================
    ARTICLE PAGE
 ================================= */
@@ -578,7 +616,6 @@ body.light-mode footer {
     transform: translateX(-5px);
 }
 
-
 /* =================================
    LIGHT MODE - ARTICLE
 ================================= */
@@ -594,7 +631,6 @@ body.light-mode .article-content {
 body.light-mode .article-content h2 {
     color: #111;
 }
-
 
 /* =================================
    MOBILE - ARTICLE
@@ -619,5 +655,4 @@ body.light-mode .article-content h2 {
         font-size: 25px;
         margin-top: 40px;
     }
-
 }
