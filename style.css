@@ -774,13 +774,23 @@ a {
 
 .article-image {
     height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4.5rem;
+    overflow: hidden;
     background: linear-gradient(135deg, rgba(180, 83, 255, 0.26), rgba(52, 235, 255, 0.12));
     border-bottom: 1px solid rgba(52, 235, 255, 0.14);
     box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.article-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.article-card:hover .article-image img {
+    transform: scale(1.05);
+    filter: saturate(1.12);
 }
 
 .article-info {
@@ -990,6 +1000,23 @@ a {
     font-weight: 700;
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 0 18px rgba(52, 235, 255, 0.06);
+}
+
+.play-button {
+    display: inline-flex;
+    margin-top: 2rem;
+    padding: 0.9rem 1.3rem;
+    border-radius: 13px;
+    background: linear-gradient(135deg, var(--accent), var(--primary-strong));
+    color: #ffffff;
+    font-weight: 800;
+    box-shadow: 0 0 24px rgba(52, 235, 255, 0.2), 0 12px 24px rgba(124, 92, 255, 0.16);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.play-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(52, 235, 255, 0.32), 0 16px 28px rgba(124, 92, 255, 0.2);
 }
 
 .back-button:hover {
