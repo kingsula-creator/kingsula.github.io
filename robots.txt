@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kingsula-creator.github.io/kingsula.github.io/sitemap.xml
