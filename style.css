@@ -772,6 +772,68 @@ a {
     color: var(--accent);
 }
 
+.faq-block {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(52, 235, 255, 0.12);
+}
+
+.faq-heading h3 {
+    max-width: 260px;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+}
+
+.faq-list {
+    display: grid;
+    gap: 0.65rem;
+}
+
+.faq-list details {
+    border: 1px solid rgba(52, 235, 255, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.025);
+    overflow: hidden;
+}
+
+.faq-list summary {
+    padding: 0.9rem 1rem;
+    cursor: pointer;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 700;
+    list-style: none;
+}
+
+.faq-list summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-list summary::after {
+    content: "+";
+    float: right;
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+
+.faq-list details[open] summary::after {
+    content: "-";
+}
+
+.faq-list details[open] summary {
+    border-bottom: 1px solid rgba(52, 235, 255, 0.1);
+}
+
+.faq-list details p {
+    padding: 0.85rem 1rem 1rem;
+    color: var(--muted);
+    font-size: 0.86rem;
+}
+
 .cta-banner {
     max-width: 1200px;
     margin: 0 auto;
@@ -1522,6 +1584,15 @@ body.light-mode #themeButton {
 
     .pricing-grid {
         grid-template-columns: 1fr;
+    }
+
+    .faq-block {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .faq-heading h3 {
+        max-width: none;
     }
 
     .whatsapp-button {
