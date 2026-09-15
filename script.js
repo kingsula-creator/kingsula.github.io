@@ -3,6 +3,14 @@
 // ================================
 
 document.addEventListener("DOMContentLoaded", async () => {
+    const siteLoader = document.getElementById("siteLoader");
+
+    if (siteLoader) {
+        window.addEventListener("load", () => {
+            siteLoader.classList.add("is-hidden");
+        }, { once: true });
+    }
+
     // ================================
     // THEME BUTTON
     // ================================
