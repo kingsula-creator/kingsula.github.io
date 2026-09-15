@@ -116,20 +116,33 @@ a {
     transform: scaleX(1);
 }
 
+.navbar-tools {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
 .pengunjung-box {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 7px 14px;
-    border: 1px solid rgba(124, 92, 255, 0.25);
-    border-radius: 999px;
-    background: rgba(124, 92, 255, 0.11);
+    gap: 0.5rem;
+    padding: 0.52rem 0.75rem;
+    border: 1px solid rgba(52, 235, 255, 0.18);
+    border-radius: 12px;
+    background: rgba(52, 235, 255, 0.06);
     color: var(--muted);
-    font-size: 0.82rem;
+    font-size: 0.72rem;
     font-weight: 600;
+    letter-spacing: 0.03em;
 }
 
-.pengunjung-box span {
+.visitor-icon {
+    color: var(--accent);
+    font-size: 0.8rem;
+    text-shadow: 0 0 10px rgba(52, 235, 255, 0.6);
+}
+
+.pengunjung-box strong {
     color: var(--text);
     font-weight: 800;
 }
@@ -1112,8 +1125,13 @@ body.light-mode #themeButton {
         display: none;
     }
 
-    .pengunjung-box {
+    .pengunjung-box span:not(.visitor-icon),
+    .pengunjung-box strong {
         display: none;
+    }
+
+    .pengunjung-box {
+        padding: 0.55rem 0.7rem;
     }
 
     .hero,
