@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#101c3b"/><stop offset="1" stop-color="#5c1f86"/></linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#34ebff"/><stop offset="1" stop-color="#8a5cff"/></linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <path d="M0 350 190 170l110 80 150-150 350 250v70H0Z" fill="#0a1024" opacity=".8"/>
+  <g fill="url(#cyan)" stroke="#ecf9ff" stroke-width="5"><path d="m180 118 88 18 18 88-88-18Z"/><path d="m360 198 88 18 18 88-88-18Z"/><path d="m540 104 88 18 18 88-88-18Z"/></g>
+  <circle cx="655" cy="72" r="28" fill="#ff4fd8" opacity=".85"/><path d="M70 70h180M70 92h110" stroke="#34ebff" stroke-width="6" opacity=".7"/>
+  <text x="70" y="360" fill="#ecf9ff" font-family="Arial,sans-serif" font-size="34" font-weight="700" letter-spacing="5">ROBLOX / LUAU</text>
+</svg>

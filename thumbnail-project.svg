@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#27103c"/><stop offset="1" stop-color="#101d42"/></linearGradient><linearGradient id="beam" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff4fd8"/><stop offset="1" stop-color="#34ebff"/></linearGradient></defs>
+  <rect width="800" height="420" fill="url(#bg)"/><path d="M0 354 200 198l118 78 155-168 327 214v98H0Z" fill="#0a1025" opacity=".75"/>
+  <path d="m400 86 126 73v142l-126 73-126-73V159L400 86Z" fill="#111d3d" stroke="url(#beam)" stroke-width="6"/><path d="M400 86v145m126-72-126 72-126-72m126 72v143" fill="none" stroke="#34ebff" stroke-width="4" opacity=".9"/>
+  <circle cx="400" cy="231" r="38" fill="#ff4fd8" opacity=".75"/><path d="M70 72h160M70 94h95" stroke="#ff4fd8" stroke-width="6" opacity=".7"/>
+  <text x="70" y="370" fill="#ecf9ff" font-family="Arial,sans-serif" font-size="34" font-weight="700" letter-spacing="5">BUILD / ITERATE</text>
+</svg>
