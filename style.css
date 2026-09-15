@@ -534,6 +534,106 @@ a {
     font-size: 0.96rem;
 }
 
+.order-section {
+    max-width: 1200px;
+    margin: 70px auto 20px;
+    padding: 2.4rem;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 2rem;
+    border: 1px solid rgba(255, 79, 216, 0.24);
+    border-radius: 26px;
+    background:
+        linear-gradient(135deg, rgba(180, 83, 255, 0.16), transparent 42%),
+        linear-gradient(180deg, rgba(17, 24, 39, 0.9), rgba(11, 16, 27, 0.82));
+    box-shadow: 0 0 30px rgba(255, 79, 216, 0.1), 0 24px 44px rgba(15, 23, 42, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.order-section::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -70px;
+    top: -90px;
+    border: 1px solid rgba(52, 235, 255, 0.2);
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+.order-copy,
+.order-features {
+    position: relative;
+    z-index: 1;
+}
+
+.order-copy h2 {
+    max-width: 650px;
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+}
+
+.order-copy > p:not(.section-label) {
+    max-width: 650px;
+    margin-bottom: 1.5rem;
+    color: var(--muted);
+}
+
+.order-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.3rem;
+    border-radius: 13px;
+    background: linear-gradient(135deg, var(--accent), var(--primary-strong), var(--accent-2));
+    color: #ffffff;
+    font-weight: 800;
+    box-shadow: 0 0 24px rgba(52, 235, 255, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(52, 235, 255, 0.32), 0 14px 28px rgba(255, 79, 216, 0.14);
+}
+
+.order-features {
+    display: grid;
+    align-content: center;
+    gap: 0.8rem;
+}
+
+.order-feature {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 0.85rem;
+    padding: 1rem;
+    border: 1px solid rgba(52, 235, 255, 0.12);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.order-feature > span {
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
+
+.order-feature strong {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.order-feature p {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
 .cta-banner {
     max-width: 1200px;
     margin: 0 auto;
@@ -1183,6 +1283,13 @@ body.light-mode #themeButton {
 
     .profile-section {
         grid-template-columns: 1fr;
+    }
+
+    .order-section {
+        grid-template-columns: 1fr;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding: 1.7rem;
     }
 
     .hero h1 {

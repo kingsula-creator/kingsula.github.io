@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // SCROLL REVEAL
     // ================================
     const revealElements = document.querySelectorAll(
-        ".highlights, .focus-card, .profile-card, .profile-visual, .articles, .article-card, .about-content, .cta-banner, .article-header, .article-cover, .article-content"
+        ".highlights, .focus-card, .profile-card, .profile-visual, .articles, .article-card, .order-section, .about-content, .cta-banner, .article-header, .article-cover, .article-content"
     );
 
     if ("IntersectionObserver" in window) {
