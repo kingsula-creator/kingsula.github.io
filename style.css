@@ -1382,6 +1382,10 @@ body.light-mode #themeButton {
 }
 
 @media (max-width: 800px) {
+    body {
+        overflow-x: hidden;
+    }
+
     .navbar {
         padding: 0 5%;
     }
@@ -1437,6 +1441,15 @@ body.light-mode #themeButton {
         grid-template-columns: 1fr;
     }
 
+    .highlights,
+    .focus-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .highlights {
+        margin-top: -16px;
+    }
+
     .order-section {
         grid-template-columns: 1fr;
         margin-left: 5%;
@@ -1474,15 +1487,85 @@ body.light-mode #themeButton {
     }
 
     .hero h1 {
-        font-size: 2.7rem;
+        font-size: clamp(2.45rem, 13vw, 3rem);
     }
 
     .hero-description {
         font-size: 1rem;
     }
 
+    .hero-small {
+        font-size: 0.68rem;
+        letter-spacing: 0.16em;
+    }
+
+    .hero-tags {
+        justify-content: center;
+    }
+
+    .hero-button,
+    .secondary-button {
+        width: 100%;
+        padding: 0.9rem 1rem;
+    }
+
+    .hero-actions {
+        width: min(100%, 320px);
+        margin: 0 auto;
+    }
+
+    .highlights,
+    .focus,
+    .about,
+    .articles {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .highlight-card,
+    .focus-card,
+    .profile-card,
+    .profile-visual,
+    .order-section,
+    .about-content {
+        border-radius: 20px;
+    }
+
+    .profile-card,
+    .profile-visual,
+    .about-content,
+    .order-section {
+        padding: 1.35rem;
+    }
+
+    .order-copy h2 {
+        font-size: clamp(1.8rem, 9vw, 2.45rem);
+    }
+
+    .order-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .cta-banner {
+        padding: 30px 5% 10px;
+    }
+
+    .social-links,
+    .social-links a {
+        width: 100%;
+    }
+
+    .social-links a {
+        text-align: center;
+    }
+
     .article-page {
         padding: 110px 20px 60px;
+    }
+
+    .article-header h1 {
+        font-size: clamp(2rem, 10vw, 3rem);
     }
 
     .article-cover {
@@ -1492,6 +1575,13 @@ body.light-mode #themeButton {
 
     .article-content {
         font-size: 1rem;
+        padding: 1.2rem 0.85rem;
+    }
+
+    .article-content p,
+    .article-content h2 {
+        margin-left: 0.35rem;
+        margin-right: 0.25rem;
     }
 
     .footer {
