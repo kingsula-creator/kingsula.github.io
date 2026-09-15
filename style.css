@@ -162,6 +162,9 @@ a {
 }
 
 .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
     font-size: clamp(1.2rem, 1.6vw, 1.7rem);
     font-weight: 900;
     letter-spacing: 0.16em;
@@ -172,6 +175,23 @@ a {
     background-clip: text;
     text-shadow: 0 0 18px rgba(52, 235, 255, 0.25), 0 0 28px rgba(180, 83, 255, 0.2);
     animation: logo-glow 4s ease-in-out infinite alternate;
+}
+
+.logo img {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 0 16px rgba(52, 235, 255, 0.24);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.logo span {
+    display: inline-block;
+    background: inherit;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .nav-links {
