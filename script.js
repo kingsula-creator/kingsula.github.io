@@ -85,6 +85,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     // ================================
+    // BACK TO TOP
+    // ================================
+    const backToTop = document.getElementById("backToTop");
+
+    if (backToTop) {
+        window.addEventListener("scroll", () => {
+            backToTop.classList.toggle("is-visible", window.scrollY > 420);
+        }, { passive: true });
+
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
+
+    // ================================
     // CONSOLE
     // ================================
     console.log("================================");
