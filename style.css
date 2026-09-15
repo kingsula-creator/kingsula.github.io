@@ -403,6 +403,21 @@ a {
     text-shadow: 0 0 18px rgba(52, 235, 255, 0.45);
 }
 
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 0.9em;
+    margin-left: 0.35rem;
+    vertical-align: -0.12em;
+    background: var(--accent);
+    box-shadow: 0 0 10px rgba(52, 235, 255, 0.75);
+    animation: typing-blink 0.9s steps(1) infinite;
+}
+
+@keyframes typing-blink {
+    50% { opacity: 0; }
+}
+
 .hero h1 {
     font-size: clamp(3.2rem, 7vw, 6rem);
     line-height: 0.97;
@@ -1751,7 +1766,8 @@ body.light-mode #themeButton {
     }
 
     .site-loader img,
-    .loader-line i {
+    .loader-line i,
+    .typing-cursor {
         animation: none;
     }
 }

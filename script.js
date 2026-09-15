@@ -12,6 +12,51 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     // ================================
+    // HERO TYPING
+    // ================================
+    const heroTyping = document.getElementById("heroTyping");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (heroTyping && !prefersReducedMotion) {
+        const typingMessages = [
+            "SELAMAT DATANG DI BLOG KU",
+            "SELAMAT DATANG DI DUNIA KINGSULA"
+        ];
+        let messageIndex = 0;
+        let characterIndex = 0;
+        let deleting = false;
+
+        const typeHeroMessage = () => {
+            const message = typingMessages[messageIndex];
+            heroTyping.textContent = message.slice(0, characterIndex);
+
+            if (!deleting && characterIndex < message.length) {
+                characterIndex += 1;
+                window.setTimeout(typeHeroMessage, 80);
+                return;
+            }
+
+            if (!deleting) {
+                deleting = true;
+                window.setTimeout(typeHeroMessage, 1800);
+                return;
+            }
+
+            if (characterIndex > 0) {
+                characterIndex -= 1;
+                window.setTimeout(typeHeroMessage, 42);
+                return;
+            }
+
+            deleting = false;
+            messageIndex = (messageIndex + 1) % typingMessages.length;
+            window.setTimeout(typeHeroMessage, 350);
+        };
+
+        typeHeroMessage();
+    }
+
+    // ================================
     // THEME BUTTON
     // ================================
     const themeButton = document.getElementById("themeButton");
