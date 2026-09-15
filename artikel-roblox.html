@@ -116,6 +116,11 @@
             ← Kembali ke Artikel
         </a>
 
+        <div class="article-comments">
+            <h3>Diskusi</h3>
+            <div id="disqus_thread"></div>
+        </div>
+
     </main>
 
 
@@ -135,6 +140,19 @@
 
 
     <script src="script.js"></script>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://kingsula.github.io/artikel-roblox.html";
+            this.page.identifier = "artikel-roblox";
+        };
+
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://kingsula.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
 
 </body>
 
