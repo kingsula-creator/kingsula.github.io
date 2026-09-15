@@ -601,6 +601,16 @@ a {
     box-shadow: 0 0 30px rgba(52, 235, 255, 0.32), 0 14px 28px rgba(255, 79, 216, 0.14);
 }
 
+.whatsapp-button {
+    margin-left: 0.6rem;
+    background: linear-gradient(135deg, #20c76a, #0b9f55);
+    box-shadow: 0 0 24px rgba(32, 199, 106, 0.2);
+}
+
+.whatsapp-button:hover {
+    box-shadow: 0 0 30px rgba(32, 199, 106, 0.34), 0 14px 28px rgba(11, 159, 85, 0.18);
+}
+
 .order-features {
     display: grid;
     align-content: center;
@@ -1290,6 +1300,11 @@ body.light-mode #themeButton {
         margin-left: 5%;
         margin-right: 5%;
         padding: 1.7rem;
+    }
+
+    .whatsapp-button {
+        margin-left: 0;
+        margin-top: 0.7rem;
     }
 
     .hero h1 {
