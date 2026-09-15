@@ -709,6 +709,69 @@ a {
     font-size: 0.85rem;
 }
 
+.pricing-grid {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 0.4rem;
+}
+
+.price-card {
+    padding: 1.35rem;
+    border: 1px solid rgba(52, 235, 255, 0.14);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.035);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.price-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(52, 235, 255, 0.42);
+    box-shadow: 0 0 22px rgba(52, 235, 255, 0.12);
+}
+
+.price-card-featured {
+    border-color: rgba(255, 79, 216, 0.38);
+    background: linear-gradient(145deg, rgba(180, 83, 255, 0.14), rgba(52, 235, 255, 0.05));
+}
+
+.price-label {
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+
+.price-card h3 {
+    margin: 0.7rem 0 0.45rem;
+    font-size: 1.75rem;
+    letter-spacing: -0.05em;
+}
+
+.price-card h3 span {
+    color: var(--accent);
+    font-size: 0.95rem;
+}
+
+.price-card > p:not(.price-label) {
+    min-height: 54px;
+    color: var(--muted);
+    font-size: 0.86rem;
+}
+
+.price-card a {
+    display: inline-flex;
+    margin-top: 1rem;
+    color: var(--text);
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.price-card a:hover {
+    color: var(--accent);
+}
+
 .cta-banner {
     max-width: 1200px;
     margin: 0 auto;
@@ -1455,6 +1518,10 @@ body.light-mode #themeButton {
         margin-left: 5%;
         margin-right: 5%;
         padding: 1.7rem;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
     }
 
     .whatsapp-button {
