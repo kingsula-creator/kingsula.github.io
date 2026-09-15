@@ -719,6 +719,17 @@ a {
     padding: 2rem;
 }
 
+.profile-avatar {
+    width: 92px;
+    height: 92px;
+    display: block;
+    margin-bottom: 1.2rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 22px rgba(52, 235, 255, 0.28), 0 0 0 6px rgba(180, 83, 255, 0.1);
+}
+
 .profile-card h2 {
     font-size: clamp(2rem, 3.4vw, 3.1rem);
     line-height: 1.1;
