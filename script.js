@@ -82,16 +82,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     // ================================
     // JUMLAH PENGUNJUNG
     // ================================
+    const visitorCount = document.getElementById("jumlahPengunjung");
+
+    if (visitorCount) {
+        visitorCount.textContent = "0";
+    }
+
     try {
         const res = await fetch("https://api.countapi.xyz/hit/kingsula-blog/beranda");
-        const data = await res.json();
-        const elemen = document.getElementById("jumlahPengunjung");
 
-        if (elemen && typeof data.value !== "undefined") {
-            elemen.textContent = data.value;
+        if (!res.ok) {
+            throw new Error(`HTTP ${res.status}`);
+        }
+
+        const data = await res.json();
+
+        if (visitorCount && typeof data.value !== "undefined") {
+            visitorCount.textContent = data.value;
         }
     } catch (err) {
         console.log("Gagal ambil data pengunjung");
+
+        if (visitorCount) {
+            visitorCount.textContent = "0";
+        }
     }
 
     // ================================

@@ -68,7 +68,15 @@ body {
 
 .site-loader strong {
     font-size: 1.2rem;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.18em;
+    font-weight: 900;
+    color: transparent;
+    background: linear-gradient(120deg, #ffffff 0%, #dffcff 12%, #7aeaff 34%, #8a5cff 58%, #ff4fd8 86%, #ffffff 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 0 16px rgba(52, 235, 255, 0.35), 0 0 26px rgba(180, 83, 255, 0.2);
+    animation: logo-glow 4s ease-in-out infinite alternate;
 }
 
 .site-loader > span {
@@ -102,6 +110,21 @@ body {
 @keyframes loader-progress {
     from { transform: translateX(-110%); }
     to { transform: translateX(330%); }
+}
+
+@keyframes logo-glow {
+    0% {
+        filter: drop-shadow(0 0 8px rgba(52, 235, 255, 0.35));
+        background-position: 0% 50%;
+    }
+    50% {
+        filter: drop-shadow(0 0 18px rgba(180, 83, 255, 0.5));
+        background-position: 50% 50%;
+    }
+    100% {
+        filter: drop-shadow(0 0 12px rgba(255, 79, 216, 0.45));
+        background-position: 100% 50%;
+    }
 }
 
 body::before {
@@ -139,10 +162,16 @@ a {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    color: var(--text);
+    font-size: clamp(1.2rem, 1.6vw, 1.7rem);
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    color: transparent;
+    background: linear-gradient(120deg, #ffffff 0%, #cff7ff 12%, #7aeaff 28%, #8a5cff 52%, #ff4fd8 78%, #ffffff 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 0 18px rgba(52, 235, 255, 0.25), 0 0 28px rgba(180, 83, 255, 0.2);
+    animation: logo-glow 4s ease-in-out infinite alternate;
 }
 
 .nav-links {
@@ -398,7 +427,7 @@ a {
     color: var(--accent);
     font-size: 0.8rem;
     font-weight: 800;
-    letter-spacing: 0.24em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     text-shadow: 0 0 18px rgba(52, 235, 255, 0.45);
 }
@@ -946,6 +975,46 @@ a {
     color: var(--muted);
     font-size: 1rem;
     max-width: 620px;
+}
+
+.profile-intro {
+    color: var(--text) !important;
+    font-size: 1.04rem !important;
+    line-height: 1.8;
+}
+
+.profile-points {
+    display: grid;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.4rem;
+}
+
+.profile-points div {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.8rem 0.9rem;
+    border-radius: 14px;
+    border: 1px solid rgba(52, 235, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.profile-points strong {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(52, 235, 255, 0.2), rgba(180, 83, 255, 0.2));
+    color: var(--accent);
+    font-size: 0.72rem;
+}
+
+.profile-points span {
+    color: var(--muted);
+    font-size: 0.9rem;
 }
 
 .profile-skills {
