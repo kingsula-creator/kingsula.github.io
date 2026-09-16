@@ -80,32 +80,36 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     // ================================
-    // JUMLAH PENGUNJUNG
+    // MOBILE SIDEBAR
     // ================================
-    const visitorCount = document.getElementById("jumlahPengunjung");
+    const menuButton = document.getElementById("menuButton");
+    const mobileSidebar = document.getElementById("mobileSidebar");
+    const sidebarClose = document.getElementById("sidebarClose");
+    const sidebarOverlay = document.getElementById("sidebarOverlay");
+    const sidebarLinks = document.querySelectorAll(".sidebar-links a");
 
-    if (visitorCount) {
-        visitorCount.textContent = "0";
-    }
+    const setSidebarState = (isOpen) => {
+        if (!menuButton || !mobileSidebar || !sidebarOverlay) return;
 
-    try {
-        const res = await fetch("https://api.countapi.xyz/hit/kingsula-blog/beranda");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        mobileSidebar.setAttribute("aria-hidden", String(!isOpen));
+        mobileSidebar.classList.toggle("is-open", isOpen);
+        sidebarOverlay.classList.toggle("is-visible", isOpen);
+        document.body.classList.toggle("sidebar-open", isOpen);
+    };
 
-        if (!res.ok) {
-            throw new Error(`HTTP ${res.status}`);
-        }
+    if (menuButton && mobileSidebar && sidebarClose && sidebarOverlay) {
+        menuButton.addEventListener("click", () => setSidebarState(true));
+        sidebarClose.addEventListener("click", () => setSidebarState(false));
+        sidebarOverlay.addEventListener("click", () => setSidebarState(false));
 
-        const data = await res.json();
+        sidebarLinks.forEach((link) => {
+            link.addEventListener("click", () => setSidebarState(false));
+        });
 
-        if (visitorCount && typeof data.value !== "undefined") {
-            visitorCount.textContent = data.value;
-        }
-    } catch (err) {
-        console.log("Gagal ambil data pengunjung");
-
-        if (visitorCount) {
-            visitorCount.textContent = "0";
-        }
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") setSidebarState(false);
+        });
     }
 
     // ================================

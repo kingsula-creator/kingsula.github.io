@@ -56,18 +56,33 @@
         </div>
 
         <div class="navbar-tools">
-            <div class="pengunjung-box">
-                <span class="visitor-icon">◉</span>
-                <span>Pengunjung</span>
-                <strong id="jumlahPengunjung">0</strong>
-            </div>
-
             <button id="themeButton">
                 🌙
+            </button>
+
+            <button class="menu-button" id="menuButton" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobileSidebar">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
 
     </nav>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <div class="sidebar-header">
+            <strong>MENU</strong>
+            <button class="sidebar-close" id="sidebarClose" type="button" aria-label="Tutup menu navigasi">×</button>
+        </div>
+        <nav class="sidebar-links" aria-label="Navigasi mobile">
+            <a href="#home">Home</a>
+            <a href="#artikel">Artikel</a>
+            <a href="#store">Store</a>
+            <a href="#about">About</a>
+        </nav>
+    </aside>
 
 
     <!-- =========================
