@@ -1270,6 +1270,53 @@ a {
     box-shadow: 0 20px 34px rgba(18, 25, 40, 0.28), 0 0 24px rgba(52, 235, 255, 0.12), 0 0 18px rgba(180, 83, 255, 0.1);
 }
 
+.map-gallery {
+    max-width: 1200px;
+    margin: 70px auto 20px;
+    padding: 0 8%;
+}
+
+.map-gallery .section-title > span {
+    display: block;
+    margin-top: 0.8rem;
+    color: var(--muted);
+}
+
+.map-gallery-slider {
+    display: flex;
+    gap: 1.2rem;
+    overflow-x: auto;
+    padding: 0.2rem 0.2rem 1rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: var(--primary-strong) rgba(52, 235, 255, 0.08);
+}
+
+.map-gallery-card {
+    flex: 0 0 calc((100% - 2.4rem) / 3);
+    margin: 0;
+    overflow: hidden;
+    scroll-snap-align: start;
+    border: 1px solid rgba(52, 235, 255, 0.16);
+    border-radius: 18px;
+    background: rgba(17, 24, 39, 0.72);
+    box-shadow: 0 12px 26px rgba(10, 15, 24, 0.2);
+}
+
+.map-gallery-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.map-gallery-card figcaption {
+    padding: 0.9rem 1rem;
+    color: var(--text);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
 .asset-badge {
     display: inline-block;
     margin-bottom: 1rem;
@@ -2178,6 +2225,16 @@ body.light-mode #themeButton {
     .asset-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    .map-gallery {
+        margin-top: 60px;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .map-gallery-card {
+        flex-basis: min(82vw, 320px);
     }
 
     .asset-card {
