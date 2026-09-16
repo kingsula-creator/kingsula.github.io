@@ -673,6 +673,42 @@ a {
     pointer-events: none;
 }
 
+.map-demo {
+    grid-column: 1 / -1;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(52, 235, 255, 0.14);
+}
+
+.map-demo-heading h2 {
+    max-width: 430px;
+    margin: 0.65rem 0 0.7rem;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    letter-spacing: -0.05em;
+}
+
+.map-demo-heading > p:not(.section-label) {
+    max-width: 440px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.map-demo-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid rgba(52, 235, 255, 0.2);
+    border-radius: 18px;
+    background: #070b14;
+    object-fit: cover;
+    box-shadow: 0 16px 30px rgba(3, 8, 18, 0.3);
+}
+
 .order-copy,
 .order-features {
     position: relative;
@@ -2269,6 +2305,15 @@ body.light-mode #themeButton {
     .asset-catalog-grid {
         grid-template-columns: 1fr;
         gap: 0.9rem;
+    }
+
+    .map-demo {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .map-demo-video {
+        border-radius: 14px;
     }
 
     .catalog-card {
