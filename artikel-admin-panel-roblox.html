@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tutorial membuat admin panel Roblox untuk memberikan title dan role menggunakan UserId atau username.">
+    <meta name="theme-color" content="#070b14">
+    <meta property="og:title" content="Membuat Admin Panel Give Title dan Give Role Roblox - KINGSULA.">
+    <meta property="og:description" content="Panduan lengkap membuat admin panel Roblox dengan whitelist UserId, input target, give title, give role, dan overhead tag.">
+    <meta property="og:type" content="article">
+
+    <link rel="icon" type="image/png" href="avatar.png">
+    <title>Admin Panel Roblox Give Title dan Give Role - KINGSULA.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="site-loader" id="siteLoader" aria-label="Memuat halaman" role="status">
+        <img src="avatar.png" alt="Logo KINGSULA">
+        <strong>KINGSULA.</strong>
+        <span>INITIALIZING...</span>
+        <div class="loader-line"><i></i></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo" aria-label="KINGSULA logo">
+            <img src="avatar.png" alt="Logo KINGSULA">
+            <span>KINGSULA.</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#artikel">Artikel</a>
+            <a href="index.html#about">About</a>
+        </div>
+        <button id="themeButton" type="button" aria-label="Ganti tema">🌙</button>
+    </nav>
+
+    <main class="article-page">
+        <div class="article-header">
+            <div class="article-category">ROBLOX · CODING</div>
+            <h1>Membuat Admin Panel Roblox untuk Give Title dan Give Role</h1>
+            <p class="article-date">18 September 2026 · KINGSULA.</p>
+        </div>
+
+        <div class="article-cover">🛡️</div>
+
+        <div class="article-content">
+            <p>
+                Pada tutorial ini kita akan membuat admin panel Roblox yang bisa digunakan untuk memberikan title dan role
+                kepada pemain. Admin dapat mengisi UserId atau username target, menulis title, memilih role, lalu menekan
+                tombol Give Title atau Give Role.
+            </p>
+
+            <h2>Fitur Admin Panel</h2>
+            <ul>
+                <li>Panel hanya muncul untuk UserId yang masuk whitelist admin.</li>
+                <li>Target bisa dicari memakai UserId atau username.</li>
+                <li>Admin dapat memberikan title custom seperti Content Creator atau Builder.</li>
+                <li>Role dibatasi ke Player, VIP, Moderator, dan Admin.</li>
+                <li>Title dan role tampil di atas kepala pemain.</li>
+                <li>Perintah diproses server sehingga pemain biasa tidak bisa mengirim give title sendiri.</li>
+            </ul>
+
+            <h2>1. Siapkan Dua Script</h2>
+            <p>
+                Tutorial ini memakai dua script. Script server menangani keamanan, whitelist, pencarian pemain, dan pemberian
+                title atau role. LocalScript membuat tampilan panel dan mengirim permintaan ke server.
+            </p>
+            <p>
+                Download file yang sudah disiapkan di bawah ini:
+            </p>
+            <p>
+                <a class="play-button" href="AdminPanelServer.lua" download>Download Server Script →</a>
+                <a class="play-button" href="AdminPanelClient.lua" download>Download Client Script →</a>
+            </p>
+
+            <h2>2. Pasang Server Script</h2>
+            <p>
+                Di Roblox Studio, buka <strong>ServerScriptService</strong>. Buat object <strong>Script</strong> baru,
+                lalu salin isi <code>AdminPanelServer.lua</code> ke dalamnya.
+            </p>
+            <p>
+                Di bagian atas script ada whitelist admin:
+            </p>
+            <pre><code>local ADMIN_USER_IDS = {
+    [123456789] = true,
+}</code></pre>
+            <p>
+                Ganti angka <code>123456789</code> dengan UserId akunmu. UserId lebih aman daripada username karena username
+                bisa berubah. Untuk menambahkan admin lain, tambahkan baris baru:
+            </p>
+            <pre><code>local ADMIN_USER_IDS = {
+    [987654321] = true,
+    [123456789] = true,
+}</code></pre>
+
+            <h2>3. Pasang Client Script</h2>
+            <p>
+                Buka <strong>StarterPlayer &gt; StarterPlayerScripts</strong>. Buat object <strong>LocalScript</strong> baru,
+                lalu salin isi <code>AdminPanelClient.lua</code> ke dalamnya.
+            </p>
+            <p>
+                GUI akan dibuat otomatis saat admin masuk ke game. Kamu tidak perlu membuat Frame, TextBox, atau tombol secara
+                manual. Panel berisi input target, input title, input role, tombol Give Title, dan tombol Give Role.
+            </p>
+
+            <h2>4. Cara Menggunakan Panel</h2>
+            <ol>
+                <li>Jalankan game menggunakan akun yang UserId-nya sudah masuk whitelist.</li>
+                <li>Di kolom target, tulis UserId atau username pemain yang sedang online.</li>
+                <li>Di kolom title, tulis title yang ingin diberikan, misalnya <code>Content Creator</code>.</li>
+                <li>Tekan <strong>GIVE TITLE</strong>.</li>
+                <li>Untuk role, isi salah satu pilihan: <code>Player</code>, <code>VIP</code>, <code>Moderator</code>, atau <code>Admin</code>.</li>
+                <li>Tekan <strong>GIVE ROLE</strong>.</li>
+            </ol>
+            <p>
+                Contoh pengisian:
+            </p>
+            <pre><code>Target: Tulis UserId atau username di sini
+Title: Content Creator
+Role: Moderator</code></pre>
+            <p>
+                Setelah berhasil, title dan role akan terlihat di atas kepala target. Pesan status di panel juga akan memberi tahu
+                apakah proses berhasil atau gagal.
+            </p>
+
+            <h2>5. Kenapa Keamanan Diproses di Server?</h2>
+            <p>
+                LocalScript berada di perangkat pemain, sehingga jangan menaruh daftar admin hanya di LocalScript.
+                Pemain yang tidak bertanggung jawab bisa mencoba mengubah LocalScript miliknya sendiri.
+                Karena itu server memeriksa UserId pengirim sebelum menerima perintah Give Title atau Give Role.
+            </p>
+            <pre><code>if not isAdmin(player) then
+    return false, "Kamu tidak memiliki izin admin."
+end</code></pre>
+            <p>
+                Pemeriksaan ini membuat pemain biasa tidak bisa memakai RemoteFunction untuk memberikan role kepada dirinya sendiri.
+            </p>
+
+            <h2>6. Error yang Sering Terjadi</h2>
+            <ul>
+                <li><strong>Panel tidak muncul:</strong> pastikan Client Script berupa LocalScript dan berada di StarterPlayerScripts.</li>
+                <li><strong>Tidak punya izin admin:</strong> periksa UserId akunmu di tabel ADMIN_USER_IDS.</li>
+                <li><strong>Username tidak ditemukan:</strong> target harus sedang online dan nama harus benar.</li>
+                <li><strong>Role tidak diterima:</strong> gunakan Player, VIP, Moderator, atau Admin sesuai daftar script.</li>
+                <li><strong>Title tidak terlihat:</strong> respawn pemain atau pastikan karakter memiliki object Head.</li>
+            </ul>
+
+            <h2>Kesimpulan</h2>
+            <p>
+                Admin panel ini memberi dasar yang aman untuk sistem staff Roblox. Kamu bisa mengembangkannya dengan tombol hapus
+                title, penyimpanan DataStore, daftar pemain online, role dengan warna berbeda, atau log aktivitas admin.
+                Sebelum dipublish, uji menggunakan beberapa akun agar permission tidak salah.
+            </p>
+        </div>
+
+        <a href="index.html#artikel" class="back-button">← Kembali ke Artikel</a>
+
+        <div class="article-comments">
+            <h3>Diskusi</h3>
+            <div id="disqus_thread"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Kingsula Blog</p>
+        <p>Made with Kingsula &amp; code.</p>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">↑</button>
+    <a class="chat-cs" href="https://wa.me/6283115145931?text=Halo%20Kak%20Kingsula%2C%20saya%20ingin%20bertanya%20tentang%20order%20map%20Roblox." target="_blank" rel="noopener noreferrer" aria-label="Chat Customer Service via WhatsApp"><span>◉</span> Chat CS</a>
+
+    <script src="script.js"></script>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://kingsula.github.io/artikel-admin-panel-roblox.html";
+            this.page.identifier = "artikel-admin-panel-roblox";
+        };
+
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://kingsula.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+</body>
+
+</html>
