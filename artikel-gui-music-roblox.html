@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tutorial lengkap membuat GUI music Roblox dengan tombol Play, Pause, Stop, Next, dan kontrol volume menggunakan Luau.">
+    <meta name="theme-color" content="#070b14">
+    <meta property="og:title" content="Tutorial Membuat GUI Music Roblox - KINGSULA.">
+    <meta property="og:description" content="Panduan membuat GUI music Roblox dari awal sampai jadi dengan Sound, LocalScript, tombol kontrol, dan volume.">
+    <meta property="og:type" content="article">
+
+    <link rel="icon" type="image/png" href="avatar.png">
+    <title>Tutorial Membuat GUI Music Roblox - KINGSULA.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="site-loader" id="siteLoader" aria-label="Memuat halaman" role="status">
+        <img src="avatar.png" alt="Logo KINGSULA">
+        <strong>KINGSULA.</strong>
+        <span>INITIALIZING...</span>
+        <div class="loader-line"><i></i></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo" aria-label="KINGSULA logo">
+            <img src="avatar.png" alt="Logo KINGSULA">
+            <span>KINGSULA.</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#artikel">Artikel</a>
+            <a href="index.html#about">About</a>
+        </div>
+        <button id="themeButton" type="button" aria-label="Ganti tema">🌙</button>
+    </nav>
+
+    <main class="article-page">
+        <div class="article-header">
+            <div class="article-category">ROBLOX · CODING</div>
+            <h1>Tutorial Membuat GUI Music Roblox dari Awal Sampai Jadi</h1>
+            <p class="article-date">18 September 2026 · KINGSULA.</p>
+        </div>
+
+        <div class="article-cover">🎵</div>
+
+        <div class="article-content">
+            <p>
+                Pada tutorial ini kita akan membuat GUI music sederhana untuk game Roblox.
+                Hasil akhirnya memiliki nama lagu, tombol Play atau Pause, Stop, Next, serta tombol untuk menaikkan
+                dan menurunkan volume. Tutorial ini cocok untuk pemula karena setiap bagian dibuat dan diuji satu per satu.
+            </p>
+
+            <h2>Hasil Akhir yang Akan Dibuat</h2>
+            <p>
+                Sistem ini memakai beberapa object <code>Sound</code> yang berada di <code>SoundService</code>.
+                Saat pemain menekan tombol, <code>LocalScript</code> akan menjalankan fungsi yang sesuai.
+                Music yang diputar hanya terdengar oleh pemain tersebut, sehingga setiap pemain bisa mengatur musiknya sendiri.
+            </p>
+
+            <h2>1. Siapkan GUI di Roblox Studio</h2>
+            <p>
+                Buka Roblox Studio dan ikuti struktur object berikut. Nama object harus sama agar script dapat menemukannya:
+            </p>
+            <pre><code>StarterGui
+└── MusicGui (ScreenGui)
+    ├── MusicFrame (Frame)
+    │   ├── SongName (TextLabel)
+    │   ├── PlayButton (TextButton)
+    │   ├── StopButton (TextButton)
+    │   ├── NextButton (TextButton)
+    │   ├── VolumeDown (TextButton)
+    │   ├── VolumeUp (TextButton)
+    │   └── VolumeText (TextLabel)
+    └── MusicScript (LocalScript)</code></pre>
+            <p>
+                Cara membuatnya: klik kanan <code>StarterGui</code>, pilih <strong>ScreenGui</strong>, lalu beri nama
+                <code>MusicGui</code>. Di dalamnya buat satu <strong>Frame</strong> bernama <code>MusicFrame</code>.
+                Masukkan semua TextLabel dan TextButton ke dalam Frame. Terakhir, masukkan LocalScript ke dalam
+                <code>MusicGui</code>, bukan ke dalam Frame.
+            </p>
+            <p>
+                Atur tulisan tombol menjadi <strong>Play</strong>, <strong>Stop</strong>, <strong>Next</strong>,
+                <strong>-</strong>, dan <strong>+</strong>. Kamu bebas mengatur warna, ukuran, posisi, dan desainnya.
+            </p>
+
+            <h2>2. Masukkan Music ke SoundService</h2>
+            <p>
+                Di Explorer, klik kanan <code>SoundService</code> lalu buat tiga object <strong>Sound</strong>.
+                Beri nama persis seperti contoh berikut:
+            </p>
+            <pre><code>SoundService
+├── Music1 (Sound)
+├── Music2 (Sound)
+└── Music3 (Sound)</code></pre>
+            <p>
+                Pilih setiap Sound, lalu isi property <code>SoundId</code> dengan audio Roblox yang boleh digunakan.
+                Formatnya seperti <code>rbxassetid://1234567890</code>. Jangan menyalin ID audio secara sembarangan;
+                pastikan audio tersebut tersedia dan sesuai aturan Roblox.
+            </p>
+            <p>
+                Atur property <code>Looped</code> menjadi <code>false</code> karena script akan berpindah ke lagu berikutnya
+                setelah lagu selesai. Atur <code>Volume</code> awal menjadi <code>0.5</code>.
+            </p>
+
+            <h2>3. Hubungkan Tombol dengan Script</h2>
+            <p>
+                Buka <code>MusicScript</code>, hapus isi awalnya, lalu masukkan kode lengkap berikut:
+            </p>
+            <pre><code>local soundService = game:GetService("SoundService")
+local musicGui = script.Parent
+local musicFrame = musicGui:WaitForChild("MusicFrame")
+
+local songName = musicFrame:WaitForChild("SongName")
+local playButton = musicFrame:WaitForChild("PlayButton")
+local stopButton = musicFrame:WaitForChild("StopButton")
+local nextButton = musicFrame:WaitForChild("NextButton")
+local volumeDown = musicFrame:WaitForChild("VolumeDown")
+local volumeUp = musicFrame:WaitForChild("VolumeUp")
+local volumeText = musicFrame:WaitForChild("VolumeText")
+
+local songs = {
+    soundService:WaitForChild("Music1"),
+    soundService:WaitForChild("Music2"),
+    soundService:WaitForChild("Music3")
+}
+
+local currentSong = 1
+local volume = 0.5
+
+local function updateVolumeText()
+    volumeText.Text = "Volume: " .. math.round(volume * 100) .. "%"
+end
+
+local function stopAllSongs()
+    for _, song in ipairs(songs) do
+        song:Stop()
+    end
+end
+
+local function playSong(songIndex)
+    stopAllSongs()
+    currentSong = songIndex
+    songs[currentSong].Volume = volume
+    songs[currentSong]:Play()
+    songName.Text = "Playing: " .. songs[currentSong].Name
+    playButton.Text = "Pause"
+end
+
+playButton.MouseButton1Click:Connect(function()
+    local currentSound = songs[currentSong]
+
+    if currentSound.IsPlaying then
+        currentSound:Pause()
+        playButton.Text = "Play"
+    else
+        currentSound:Resume()
+        playButton.Text = "Pause"
+    end
+end)
+
+stopButton.MouseButton1Click:Connect(function()
+    stopAllSongs()
+    songName.Text = "Music berhenti"
+    playButton.Text = "Play"
+end)
+
+nextButton.MouseButton1Click:Connect(function()
+    currentSong = currentSong + 1
+
+    if currentSong > #songs then
+        currentSong = 1
+    end
+
+    playSong(currentSong)
+end)
+
+volumeDown.MouseButton1Click:Connect(function()
+    volume = math.max(0, volume - 0.1)
+
+    for _, song in ipairs(songs) do
+        song.Volume = volume
+    end
+
+    updateVolumeText()
+end)
+
+volumeUp.MouseButton1Click:Connect(function()
+    volume = math.min(1, volume + 0.1)
+
+    for _, song in ipairs(songs) do
+        song.Volume = volume
+    end
+
+    updateVolumeText()
+end)
+
+for _, song in ipairs(songs) do
+    song.Ended:Connect(function()
+        if song == songs[currentSong] then
+            currentSong = currentSong + 1
+
+            if currentSong > #songs then
+                currentSong = 1
+            end
+
+            playSong(currentSong)
+        end
+    end)
+end
+
+updateVolumeText()
+songName.Text = "Tekan Play untuk mulai"
+playButton.Text = "Play"</code></pre>
+
+            <h2>4. Penjelasan Bagian Penting</h2>
+            <p>
+                Baris <code>WaitForChild()</code> digunakan agar script menunggu object tersedia sebelum dipakai.
+                Ini lebih aman daripada langsung menulis nama object, terutama saat game baru dimulai.
+            </p>
+            <p>
+                Tabel <code>songs</code> menyimpan semua music yang ingin diputar. Variabel <code>currentSong</code>
+                menyimpan posisi lagu yang sedang dipilih, sedangkan <code>volume</code> menyimpan volume saat ini
+                dalam angka antara <code>0</code> sampai <code>1</code>.
+            </p>
+            <p>
+                Fungsi <code>playSong()</code> menghentikan semua lagu, memilih lagu baru, menerapkan volume,
+                lalu memutarnya. Tombol Next cukup menaikkan nomor <code>currentSong</code>. Jika sudah melewati lagu terakhir,
+                nomor dikembalikan ke lagu pertama.
+            </p>
+
+            <h2>5. Uji GUI Music</h2>
+            <p>
+                Klik tombol <strong>Play</strong> di Roblox Studio. Coba tekan Pause, Play lagi, Stop, dan Next.
+                Tekan tombol <strong>+</strong> atau <strong>-</strong> untuk memastikan volume berubah.
+                Jika lagu pertama selesai, script seharusnya otomatis memutar lagu berikutnya.
+            </p>
+            <p>
+                Jika tampilan terlalu kecil, pilih <code>MusicFrame</code> dan atur property <code>Size</code> serta
+                <code>Position</code>. Untuk membuat GUI tetap nyaman di HP, gunakan ukuran berbasis skala dan aktifkan
+                <code>TextScaled</code> pada label atau tombol seperlunya.
+            </p>
+
+            <h2>6. Error yang Sering Terjadi</h2>
+            <ul>
+                <li><strong>Infinite yield possible:</strong> periksa nama object dan lokasi setiap tombol.</li>
+                <li><strong>Music tidak terdengar:</strong> periksa SoundId, izin audio, Volume, dan apakah audio masih tersedia.</li>
+                <li><strong>Tombol tidak merespons:</strong> pastikan yang digunakan adalah LocalScript, bukan Script biasa.</li>
+                <li><strong>Next error:</strong> pastikan semua nama Sound sama dengan nama dalam tabel <code>songs</code>.</li>
+                <li><strong>GUI tidak muncul:</strong> pastikan MusicGui berada di StarterGui dan property Enabled aktif.</li>
+            </ul>
+
+            <h2>Kesimpulan</h2>
+            <p>
+                GUI music Roblox dibuat dari tiga bagian utama: tampilan GUI, kumpulan Sound, dan LocalScript sebagai pengatur.
+                Setelah sistem dasar ini berhasil, kamu bisa mengembangkannya dengan daftar lagu, progress bar,
+                tombol mute, animasi frame, atau sistem playlist yang lebih lengkap.
+            </p>
+            <p>
+                Kerjakan dan uji satu bagian setiap kali. Dengan begitu, jika muncul error, kamu lebih mudah mengetahui
+                apakah masalahnya ada pada nama object, SoundId, atau kode tombolnya.
+            </p>
+        </div>
+
+        <a href="index.html#artikel" class="back-button">← Kembali ke Artikel</a>
+
+        <div class="article-comments">
+            <h3>Diskusi</h3>
+            <div id="disqus_thread"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Kingsula Blog</p>
+        <p>Made with Kingsula &amp; code.</p>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">↑</button>
+    <a class="chat-cs" href="https://wa.me/6283115145931?text=Halo%20Kak%20Kingsula%2C%20saya%20ingin%20bertanya%20tentang%20order%20map%20Roblox." target="_blank" rel="noopener noreferrer" aria-label="Chat Customer Service via WhatsApp"><span>◉</span> Chat CS</a>
+
+    <script src="script.js"></script>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://kingsula.github.io/artikel-gui-music-roblox.html";
+            this.page.identifier = "artikel-gui-music-roblox";
+        };
+
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://kingsula.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+</body>
+
+</html>
