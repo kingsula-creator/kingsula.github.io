@@ -1,4 +1,4 @@
-# kingsula.github.io
+﻿# kingsula-creator.github.io
 
 Blog pribadi KINGSULA. berisi cerita, tutorial, project, dan pengalaman seputar Roblox, coding, game development, dan teknologi.
 
@@ -18,4 +18,5 @@ Repository ini menggunakan branch `main`. Di GitHub, buka **Settings > Pages**, 
 
 Setelah deployment selesai, situs tersedia di:
 
-`https://kingsula-creator.github.io/kingsula.github.io/`
+`https://kingsula-creator.github.io/`
+

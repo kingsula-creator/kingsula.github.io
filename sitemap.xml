@@ -1,23 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://kingsula-creator.github.io/kingsula.github.io/</loc>
+        <loc>https://kingsula-creator.github.io/</loc>
         <lastmod>2026-09-15</lastmod>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://kingsula-creator.github.io/kingsula.github.io/artikel-roblox.html</loc>
+        <loc>https://kingsula-creator.github.io/artikel-roblox.html</loc>
         <lastmod>2026-09-15</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://kingsula-creator.github.io/kingsula.github.io/artikel-coding.html</loc>
+        <loc>https://kingsula-creator.github.io/artikel-coding.html</loc>
         <lastmod>2026-09-15</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://kingsula-creator.github.io/kingsula.github.io/artikel-project.html</loc>
+        <loc>https://kingsula-creator.github.io/artikel-project.html</loc>
         <lastmod>2026-09-15</lastmod>
         <priority>0.8</priority>
     </url>
 </urlset>
+
