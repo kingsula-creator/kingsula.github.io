@@ -8,12 +8,12 @@
     --text: #ecf9ff;
     --muted: #a7bfd9;
     --line: rgba(101, 240, 255, 0.16);
-    --primary: #8a5cff;
-    --primary-strong: #b453ff;
+    --primary: #547cff;
+    --primary-strong: #7d9cff;
     --accent: #34ebff;
-    --accent-2: #ff4fd8;
-    --shadow: rgba(52, 235, 255, 0.26);
-    --glow: rgba(255, 79, 216, 0.15);
+    --accent-2: #ff68c9;
+    --shadow: rgba(52, 235, 255, 0.2);
+    --glow: rgba(255, 104, 201, 0.1);
 }
 
 * {
@@ -29,9 +29,9 @@ html {
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background:
-        radial-gradient(circle at top left, rgba(180, 83, 255, 0.25), transparent 24%),
-        radial-gradient(circle at top right, rgba(52, 235, 255, 0.18), transparent 28%),
-        radial-gradient(circle at bottom center, rgba(255, 79, 216, 0.12), transparent 26%),
+        radial-gradient(circle at top left, rgba(84, 124, 255, 0.15), transparent 24%),
+        radial-gradient(circle at top right, rgba(52, 235, 255, 0.13), transparent 28%),
+        radial-gradient(circle at bottom center, rgba(255, 104, 201, 0.08), transparent 26%),
         var(--bg);
     color: var(--text);
     line-height: 1.6;
