@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const category = card.querySelector(".category")?.textContent.trim().toLowerCase() || "";
                 const searchableText = card.textContent.toLowerCase();
                 const matchesSearch = !searchTerm || searchableText.includes(searchTerm);
-                const matchesCategory = selectedCategory === "all" || category === selectedCategory;
+                const matchesCategory = selectedCategory === "all" || category.includes(selectedCategory);
                 const isVisible = matchesSearch && matchesCategory;
 
                 card.hidden = !isVisible;

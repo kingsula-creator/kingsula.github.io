@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panduan coding Roblox untuk pemula dengan bahasa Luau, contoh script, dan cara menjalankannya di Roblox Studio.">
+    <meta name="theme-color" content="#070b14">
+    <meta property="og:title" content="Coding Roblox untuk Pemula - KINGSULA.">
+    <meta property="og:description" content="Pelajari dasar coding Roblox dengan Luau melalui contoh script yang mudah dipahami dan langsung dicoba.">
+    <meta property="og:type" content="article">
+
+    <link rel="icon" type="image/png" href="avatar.png">
+    <title>Coding Roblox untuk Pemula - KINGSULA.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="site-loader" id="siteLoader" aria-label="Memuat halaman" role="status">
+        <img src="avatar.png" alt="Logo KINGSULA">
+        <strong>KINGSULA.</strong>
+        <span>INITIALIZING...</span>
+        <div class="loader-line"><i></i></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo" aria-label="KINGSULA logo">
+            <img src="avatar.png" alt="Logo KINGSULA">
+            <span>KINGSULA.</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#artikel">Artikel</a>
+            <a href="index.html#about">About</a>
+        </div>
+        <button id="themeButton" type="button" aria-label="Ganti tema">🌙</button>
+    </nav>
+
+    <main class="article-page">
+        <div class="article-header">
+            <div class="article-category">ROBLOX · CODING</div>
+            <h1>Coding Roblox untuk Pemula: Mengenal Luau dan Script Pertama</h1>
+            <p class="article-date">18 September 2026 · KINGSULA.</p>
+        </div>
+
+        <div class="article-cover">💻</div>
+
+        <div class="article-content">
+            <p>
+                Coding di Roblox adalah proses memberikan instruksi kepada game agar bisa melakukan sesuatu.
+                Contohnya, pintu terbuka ketika disentuh, pemain mendapatkan koin, atau tombol menampilkan sebuah menu.
+                Di Roblox Studio, kita menggunakan bahasa pemrograman bernama Luau.
+            </p>
+
+            <h2>1. Apa Itu Luau?</h2>
+            <p>
+                Luau adalah bahasa pemrograman yang dikembangkan dari Lua dan digunakan oleh Roblox.
+                Luau memiliki sintaks yang cukup mudah dibaca, sehingga cocok untuk belajar logika pemrograman
+                sambil membuat game.
+            </p>
+
+            <h2>2. Script, LocalScript, dan ModuleScript</h2>
+            <p>
+                Ada tiga jenis script yang sering ditemui. <strong>Script</strong> biasanya dipakai untuk logika di server,
+                misalnya memberi hadiah kepada pemain. <strong>LocalScript</strong> berjalan di perangkat pemain dan cocok
+                untuk input atau tampilan antarmuka. <strong>ModuleScript</strong> dipakai untuk menyimpan kode yang ingin
+                digunakan kembali oleh script lain.
+            </p>
+            <p>
+                Untuk latihan pertama, buat object <strong>Script</strong> di dalam <strong>ServerScriptService</strong>.
+                Lokasi ini membantu script server berjalan ketika game dimulai.
+            </p>
+
+            <h2>3. Script Pertama: Menampilkan Pesan</h2>
+            <p>
+                Hapus isi script, lalu tulis kode berikut:
+            </p>
+            <pre><code>print("Halo, Roblox!")</code></pre>
+            <p>
+                Klik tombol <strong>Play</strong>, lalu buka panel <strong>Output</strong> di Roblox Studio.
+                Jika berhasil, kamu akan melihat tulisan “Halo, Roblox!”. Fungsi <code>print()</code> berguna
+                untuk memeriksa apakah bagian kode tertentu sudah berjalan.
+            </p>
+
+            <h2>4. Membuat Variabel</h2>
+            <p>
+                Variabel adalah tempat untuk menyimpan data. Misalnya, kita ingin menyimpan jumlah koin pemain:
+            </p>
+            <pre><code>local coins = 10
+print(coins)</code></pre>
+            <p>
+                Kata <code>local</code> membuat variabel yang digunakan di dalam bagian script tersebut.
+                Nama <code>coins</code> adalah nama variabelnya, sedangkan angka <code>10</code> adalah nilainya.
+            </p>
+
+            <h2>5. Membuat Part Berubah Warna</h2>
+            <p>
+                Sekarang kita coba berinteraksi dengan object di map. Buat sebuah Part di Workspace,
+                lalu masukkan Script ke dalam Part tersebut dan gunakan kode ini:
+            </p>
+            <pre><code>local part = script.Parent
+
+part.BrickColor = BrickColor.new("Bright blue")</code></pre>
+            <p>
+                <code>script.Parent</code> berarti object yang menjadi tempat script berada. Karena script dimasukkan
+                ke dalam Part, variabel <code>part</code> akan merujuk ke Part tersebut. Saat game berjalan,
+                warnanya berubah menjadi biru.
+            </p>
+
+            <h2>6. Membuat Event Saat Part Disentuh</h2>
+            <p>
+                Event adalah kejadian yang bisa ditanggapi oleh script. Contoh berikut mengubah warna Part ketika disentuh:
+            </p>
+            <pre><code>local part = script.Parent
+
+part.Touched:Connect(function()
+    part.BrickColor = BrickColor.new("Bright red")
+end)</code></pre>
+            <p>
+                <code>Touched</code> aktif ketika ada object yang menyentuh Part. Bagian di antara <code>function()</code>
+                dan <code>end</code> adalah perintah yang dijalankan setelah event terjadi.
+            </p>
+
+            <h2>7. Kesalahan yang Sering Terjadi</h2>
+            <p>
+                Jika script tidak bekerja, jangan langsung menghapus semuanya. Periksa beberapa hal berikut:
+            </p>
+            <ul>
+                <li>Pastikan jenis script sesuai dengan lokasi object.</li>
+                <li>Periksa ejaan nama object dan variabel.</li>
+                <li>Buka panel Output untuk membaca pesan error berwarna merah.</li>
+                <li>Pastikan setiap tanda kurung dan kata <code>end</code> sudah lengkap.</li>
+                <li>Uji satu perubahan kecil setiap kali agar mudah menemukan sumber masalah.</li>
+            </ul>
+
+            <h2>Kesimpulan</h2>
+            <p>
+                Belajar coding Roblox tidak harus dimulai dari sistem yang besar. Pahami dulu variabel, object,
+                event, dan cara membaca error. Setelah itu, gabungkan konsep-konsep kecil tersebut menjadi fitur
+                seperti koin, pintu, checkpoint, shop, atau sistem game lainnya.
+            </p>
+            <p>
+                Yang paling penting adalah sering mencoba. Script yang error bukan berarti kamu gagal, tetapi memberi
+                petunjuk tentang bagian mana yang perlu dipahami lagi.
+            </p>
+        </div>
+
+        <a href="index.html#artikel" class="back-button">← Kembali ke Artikel</a>
+
+        <div class="article-comments">
+            <h3>Diskusi</h3>
+            <div id="disqus_thread"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Kingsula Blog</p>
+        <p>Made with Kingsula &amp; code.</p>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">↑</button>
+    <a class="chat-cs" href="https://wa.me/6283115145931?text=Halo%20Kak%20Kingsula%2C%20saya%20ingin%20bertanya%20tentang%20order%20map%20Roblox." target="_blank" rel="noopener noreferrer" aria-label="Chat Customer Service via WhatsApp"><span>◉</span> Chat CS</a>
+
+    <script src="script.js"></script>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://kingsula.github.io/artikel-scripting-roblox.html";
+            this.page.identifier = "artikel-scripting-roblox";
+        };
+
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://kingsula.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+</body>
+
+</html>
