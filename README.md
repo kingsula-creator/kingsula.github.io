@@ -18,5 +18,5 @@ Repository ini menggunakan branch `main`. Di GitHub, buka **Settings > Pages**, 
 
 Setelah deployment selesai, situs tersedia di:
 
-`https://kingsula-creator.github.io/`
+`https://kingsula-creator.github.io/kingsula.github.io/`
 
