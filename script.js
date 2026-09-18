@@ -133,6 +133,41 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     // ================================
+    // ARTICLE SEARCH AND FILTER
+    // ================================
+    const articleSearch = document.getElementById("articleSearch");
+    const articleCategory = document.getElementById("articleCategory");
+    const articleResult = document.getElementById("articleResult");
+    const articleEmpty = document.getElementById("articleEmpty");
+    const articleCards = document.querySelectorAll(".article-card");
+
+    if (articleSearch && articleCategory && articleResult && articleEmpty && articleCards.length) {
+        const updateArticleList = () => {
+            const searchTerm = articleSearch.value.trim().toLowerCase();
+            const selectedCategory = articleCategory.value;
+            let visibleArticles = 0;
+
+            articleCards.forEach((card) => {
+                const category = card.querySelector(".category")?.textContent.trim().toLowerCase() || "";
+                const searchableText = card.textContent.toLowerCase();
+                const matchesSearch = !searchTerm || searchableText.includes(searchTerm);
+                const matchesCategory = selectedCategory === "all" || category === selectedCategory;
+                const isVisible = matchesSearch && matchesCategory;
+
+                card.hidden = !isVisible;
+                if (isVisible) visibleArticles += 1;
+            });
+
+            articleResult.textContent = `${visibleArticles} artikel ditemukan`;
+            articleEmpty.hidden = visibleArticles !== 0;
+        };
+
+        articleSearch.addEventListener("input", updateArticleList);
+        articleCategory.addEventListener("change", updateArticleList);
+        updateArticleList();
+    }
+
+    // ================================
     // SCROLL REVEAL
     // ================================
     const revealElements = document.querySelectorAll(

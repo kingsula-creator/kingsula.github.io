@@ -516,6 +516,26 @@
 
         </div>
 
+        <div class="article-tools" aria-label="Alat pencarian artikel">
+            <label class="article-search">
+                <span class="sr-only">Cari artikel</span>
+                <input id="articleSearch" type="search" placeholder="Cari artikel..." autocomplete="off">
+            </label>
+
+            <label class="article-filter">
+                <span class="sr-only">Filter kategori</span>
+                <select id="articleCategory">
+                    <option value="all">Semua kategori</option>
+                    <option value="roblox">Roblox</option>
+                    <option value="coding">Coding</option>
+                    <option value="project">Project</option>
+                    <option value="story">Story</option>
+                </select>
+            </label>
+
+            <p class="article-result" id="articleResult" aria-live="polite"></p>
+        </div>
+
 
         <div class="article-grid">
 
@@ -764,6 +784,10 @@
 
 
         </div>
+
+        <p class="article-empty" id="articleEmpty" hidden>
+            Artikel yang kamu cari belum ditemukan. Coba kata kunci atau kategori lain.
+        </p>
 
     </section>
 
